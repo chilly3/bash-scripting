@@ -1,12 +1,26 @@
 #!/bin/bash
 #script for parsing text document for video length times from vid_list.txt (total time for compTIA course sec 3.3-3.11) Copied from website
+#Script needs to be updated to handle invalid user input
 
-#parse file into array of numbers to be added
 IFS=$'\n'
 
-v_list=($(cat vid_list.txt | awk -e '/\)$/ {print $NF}' | awk '{gsub(/\(/,"");gsub(/\)/,"");gsub(/:/," "); print $0}'))
+#list of files for selection
+vid_dir=($(ls -a vid_dir/ | awk -e '/vid_list/ {print "vid_dir/"$0}'))
+vid_pick=''
 
-#declare -p v_list
+#present user with list of files to select from
+select el in ${vid_dir[@]}
+do
+  vid_pick=$(echo ${el})
+  break
+done
+
+echo "Input selected: "${vid_pick}
+
+
+
+#parse file into array of numbers to be added
+v_list=($(cat ${vid_pick} | awk -e '/\)$/ {print $NF}' | awk '{gsub(/\(/,"");gsub(/\)/,"");gsub(/:/," "); print $0}'))
 
 #time variables
 v_mins=0
