@@ -1,0 +1,9 @@
+Section 4: Virtualization and Cloud Computing
+4.1 – Cloud Computing
+Cloud Models video title slide
+Cloud Models (8:59)
+Cloud Services video title slide
+Cloud Services (6:12)
+4.2 – Client-side Virtualization
+Client-side Virtualization video title slide
+Client-side Virtualization (6:59)
